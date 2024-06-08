@@ -1,5 +1,5 @@
 export function emailIsValid(value: string) {
-  console.log(value);
+  if(!value) return false;
   const splitEmail = value.split('@');
   // verify if email has just one "@"
   if (splitEmail.length != 2) return false;

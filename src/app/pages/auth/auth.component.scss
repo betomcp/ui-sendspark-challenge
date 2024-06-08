@@ -1,0 +1,33 @@
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+
+  form {
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.463);
+    width: 30vw;
+    padding: 1rem;
+    max-width: 500px;
+    min-width: 280px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .error-message {
+    padding: .8rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: .9rem;
+    background-color: rgba(218, 48, 48, 0.708);
+    color: white;
+    width: 30vh;
+    max-width: 500px;
+    min-width: 280px;
+    margin-bottom: .5rem;
+  }
+}
