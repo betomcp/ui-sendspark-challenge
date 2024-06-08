@@ -1,0 +1,83 @@
+<h1>Nice to meet you!</h1>
+<h2>We're excited to have you aboard!</h2>
+<form [formGroup]="newUserForm">
+  <div class="double-input-row">
+    <div class="input-div">
+      <label>First name</label>
+      <input formControlName="firstName" type="text" maxlength="120" />
+      <div
+        *ngIf="
+          getFormProperty('firstName')?.invalid &&
+          getFormProperty('firstName')?.dirty
+        "
+        class="input-error-message"
+      >
+        <div>First name is required.</div>
+      </div>
+    </div>
+    <div class="input-div">
+      <label>Last name</label>
+      <input formControlName="lastName" type="text" />
+      <div
+        *ngIf="
+          getFormProperty('lastName')?.invalid &&
+          getFormProperty('lastName')?.dirty
+        "
+        class="input-error-message"
+      >
+        <div>Lats name is required.</div>
+      </div>
+    </div>
+  </div>
+  <div class="input-div">
+    <label>Company</label>
+    <input formControlName="company" type="text" />
+    <div
+      *ngIf="
+        getFormProperty('company')?.invalid && getFormProperty('company')?.dirty
+      "
+      class="input-error-message"
+    >
+      <div>Company is required.</div>
+    </div>
+  </div>
+  <div class="input-div">
+    <label>Job title</label>
+    <input formControlName="jobTitle" type="text" />
+  </div>
+  <div class="input-div">
+    <label>Work email</label>
+    <input formControlName="workEmail" type="text" />
+    <div
+      *ngIf="
+        getFormProperty('workEmail')?.invalid &&
+        getFormProperty('workEmail')?.dirty
+      "
+      class="input-error-message"
+    >
+      <div>Work email is required.</div>
+    </div>
+    <div
+      *ngIf="!emailIsValid() && getFormProperty('workEmail')?.dirty"
+      class="input-error-message"
+    >
+      <div>Work email is invalid.</div>
+    </div>
+  </div>
+  <div class="input-div">
+    <label>Create Password</label>
+    <input formControlName="password" type="text" />
+    <div
+      *ngIf="
+        getFormProperty('password')?.invalid &&
+        getFormProperty('password')?.dirty
+      "
+      class="input-error-message"
+    >
+      <div>Password is required.</div>
+    </div>
+  </div>
+  <div class="button-div">
+    <button [disabled]="!newUserForm.valid" (click)="saveData()">Continuar</button>
+  </div>
+</form>
