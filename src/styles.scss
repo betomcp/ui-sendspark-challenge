@@ -1,1 +1,67 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  font-family: sans-serif;
+}
+
+.double-input-row {
+  display: flex;
+  justify-content: space-between;
+
+  .input-div {
+    width: 49%;
+    input {
+      width: 100%;
+    }
+  }
+}
+
+.input-div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  input {
+    border-radius: 3px;
+    outline: none;
+    border: none;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.555);
+    height: 2rem;
+    padding: 3px 5px;
+  }
+
+  label {
+    font-size: .8rem;
+    color: rgb(28, 28, 28);
+    padding: .9rem 0 .3rem 0;
+  }
+}
+
+.button-div {
+  width: 100%;
+  padding: 1rem 0;
+
+  button {
+    width: 100%;
+    background-color: rgb(38, 75, 238);
+    border: none;
+    outline: none;
+    border-radius: 3px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.467);
+    color: white;
+    font-size: 0.8rem;
+    height: 2rem;
+  }
+
+  button:disabled {
+    background-color: rgba(38, 75, 238, 0.677);
+  }
+}
+
+.border-red {
+  border: red 2px solid;
+}
