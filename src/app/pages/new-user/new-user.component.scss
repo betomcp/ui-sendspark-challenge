@@ -18,18 +18,21 @@
     margin-top: 2.4rem;
     height: 60vh;
     width: 37vw;
+    min-width: 290px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    min-width: 290px;
   }
 
-  .input-error-message {
-    // border: solid 2px red;
-    div {
-      font-size: .7rem;
-      color: red;
-      padding: .2rem 0;
-    }
+  .new-user-error {
+    width: 37vw;
+    min-width: 290px;
+    background-color: rgba(218, 48, 48, 0.708);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: .8rem 0;
+    margin-bottom: .5rem;
   }
 }

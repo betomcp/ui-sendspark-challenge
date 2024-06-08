@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { UserProxyService } from 'src/app/proxy/user-proxy/user-proxy.service';
 import { CreateUserDto } from 'src/app/shared/dto/new-user.dto';
+import { AccessTokenService } from 'src/app/shared/services/access-token.service';
 import { emailIsValid } from 'src/app/shared/utils/is-valid-email';
 
 @Component({
@@ -11,10 +13,13 @@ import { emailIsValid } from 'src/app/shared/utils/is-valid-email';
 })
 export class NewUserComponent implements OnInit {
   newUserForm!: FormGroup;
+  errorMessage = '';
 
   constructor(
     private formBuilder: FormBuilder,
-    private userProxyService: UserProxyService
+    private userProxyService: UserProxyService,
+    private accessTokenService: AccessTokenService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -41,12 +46,15 @@ export class NewUserComponent implements OnInit {
   }
 
   saveData() {
-    this.userProxyService.create(this.newUserForm.value).subscribe((res: any) => {
-      if(res.error) {
-
-      } else {
-        // navegar para home
+    this.userProxyService.create(this.newUserForm.value).subscribe(
+      (res: any) => {
+        this.accessTokenService.setToken(res.access_token);
+        this.router.navigate(['/home']);
+      },
+      (error) => {
+        console.log(error);
+        this.errorMessage = error.error.message[0];
       }
-    })
+    );
   }
 }

@@ -1,6 +1,9 @@
 <h1>Nice to meet you!</h1>
 <h2>We're excited to have you aboard!</h2>
 <form [formGroup]="newUserForm">
+  <div *ngIf="errorMessage" class="new-user-error">
+    {{errorMessage}}
+  </div>
   <div class="double-input-row">
     <div class="input-div">
       <label>First name</label>
@@ -66,7 +69,7 @@
   </div>
   <div class="input-div">
     <label>Create Password</label>
-    <input formControlName="password" type="text" />
+    <input formControlName="password" type="password" />
     <div
       *ngIf="
         getFormProperty('password')?.invalid &&
@@ -78,6 +81,6 @@
     </div>
   </div>
   <div class="button-div">
-    <button [disabled]="!newUserForm.valid" (click)="saveData()">Continuar</button>
+    <button [disabled]="!newUserForm.valid" (click)="saveData()">Continue</button>
   </div>
 </form>

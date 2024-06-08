@@ -65,3 +65,12 @@ html {
 .border-red {
   border: red 2px solid;
 }
+
+.input-error-message {
+  // border: solid 2px red;
+  div {
+    font-size: .7rem;
+    color: red;
+    padding: .2rem 0;
+  }
+}

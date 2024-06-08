@@ -1,1 +1,43 @@
-<p>auth works!</p>
+<div class="error-message" *ngIf="showErrorMessage">
+  Inavlid email or password
+</div>
+<form [formGroup]="loginForm">
+  <div class="input-div">
+    <label>Email</label>
+    <input formControlName="username" type="text" />
+    <div
+      *ngIf="
+        getFormProperty('username')?.invalid &&
+        getFormProperty('username')?.dirty
+      "
+      class="input-error-message"
+    >
+      <div>Email is required.</div>
+    </div>
+    <div
+      *ngIf="!emailIsValid() && getFormProperty('username')?.dirty"
+      class="input-error-message"
+    >
+      <div>Email is invalid.</div>
+    </div>
+  </div>
+
+
+  <div class="input-div">
+    <label>Password</label>
+    <input formControlName="password" type="password" />
+    <div
+      *ngIf="
+        getFormProperty('password')?.invalid &&
+        getFormProperty('password')?.dirty
+      "
+      class="input-error-message"
+    >
+      <div>Password is required.</div>
+    </div>
+  </div>
+  <div class="button-div">
+    <button [disabled]="!loginForm.valid" (click)="logIn()">Log in</button>
+  </div>
+  <a href="sign-in">Sign In</a>
+</form>
