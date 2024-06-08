@@ -49,7 +49,7 @@ export class AuthComponent implements OnInit {
   }
 
   goToSigIn() {
-    this.router.navigate(['sign-in']);
+    this.router.navigate(['/sign-in']);
   }
 
   emailIsValid() {
