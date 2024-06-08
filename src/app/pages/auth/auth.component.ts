@@ -48,6 +48,10 @@ export class AuthComponent implements OnInit {
     );
   }
 
+  goToSigIn() {
+    this.router.navigate(['sign-in']);
+  }
+
   emailIsValid() {
     return emailIsValid(this.loginForm.value.username);
   }
